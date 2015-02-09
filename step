@@ -1,0 +1,16 @@
+#!/bin/sh
+step() {
+  for line in $1
+  do
+    sleep 0.1
+    echo $line
+  done
+}
+
+if [ -p /dev/stdin ]
+then
+  in=`cat -`
+  step "$in"
+else
+  step "`$*`"
+fi
